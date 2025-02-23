@@ -1,0 +1,13 @@
+.footer {
+  margin: 0 0 60px;
+}
+
+.footer__text {
+  color: rgba(84, 84, 84, 1);
+  margin: 0;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  letter-spacing: 0%;
+}
