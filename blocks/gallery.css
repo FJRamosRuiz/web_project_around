@@ -59,3 +59,29 @@
   background-size: cover;
   background-position: center;
 }
+
+.gallery__element-icon:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 544px) {
+  .gallery {
+    max-width: 282px;
+    height: 2266px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__element {
+    height: 361px;
+  }
+
+  .gallery__element-title {
+    font-family: "Inter";
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29.05px;
+  }
+}
