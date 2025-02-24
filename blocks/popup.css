@@ -6,7 +6,7 @@
   border-radius: 10px;
   max-width: 430px;
   max-height: 330px;
-  display: flex;
+  display: none;
 }
 
 .popup__form {
@@ -97,6 +97,11 @@
   background-size: cover;
   width: 40px;
   height: 40px;
+}
+
+.popup__btn-close:hover {
+  opacity: 60%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 544px) {
