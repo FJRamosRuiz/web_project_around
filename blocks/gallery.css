@@ -65,6 +65,13 @@
   cursor: pointer;
 }
 
+.gallery__element-icon:active {
+  background-image: url(../images/gallery-element-icon-active.svg);
+  background-position: center;
+  background-size: cover;
+  opacity: 100%;
+}
+
 @media screen and (max-width: 544px) {
   .gallery {
     max-width: 282px;

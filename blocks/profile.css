@@ -27,7 +27,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 415px;
   height: 77px;
 }
 
@@ -38,13 +37,17 @@
 
 .profile__name {
   margin: 0;
-  width: 373px;
+  max-width: 500px;
   height: 39px;
   font-family: "Inter";
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
   letter-spacing: 0%;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__info-btn {
@@ -74,9 +77,9 @@
 
 .profile__add-btn {
   padding: 0;
-  margin: 0;
-  border: none;
+  margin: 0 0 0 10px;
   width: 150px;
+  border: 1px solid rgba(255, 255, 255, 1);
   height: 50px;
   background: none;
   background-image: url(../images/add-button.png);
