@@ -105,7 +105,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 480px) {
   .popup {
     max-width: 282px;
     position: fixed;
