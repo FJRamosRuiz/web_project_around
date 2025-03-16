@@ -15,6 +15,7 @@
     <title>Around the U.S.</title>
   </head>
   <body>
+    <div class="overlay"></div>
     <div class="page">
       <header class="header">
         <img
@@ -43,79 +44,8 @@
           </div>
           <button class="profile__add-btn"></button>
         </section>
-        <section class="gallery">
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image.jpeg"
-              alt="imagen de yosemite"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Valle de Yosemite</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
 
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image-lake.jpeg"
-              alt="imagen del lago louise"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Lago Louise</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
-
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image-smoky.jpeg"
-              alt="imagen de las montañas calvas"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Montañas Calvas</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
-
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image-latemar.jpeg"
-              alt="imagen de latemar"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Latemar</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
-
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image-vanoise.jpeg"
-              alt="imagen del parque vanois"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Vanois National Park</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
-
-          <div class="gallery__element">
-            <img
-              class="gallery__element-image"
-              src="./images/card-image-lago.jpeg"
-              alt="imagen del lago di braies"
-            />
-            <div class="gallery__element-text">
-              <h2 class="gallery__element-title">Lago di Braies</h2>
-              <button class="gallery__element-icon"></button>
-            </div>
-          </div>
-        </section>
+        <section class="gallery"></section>
 
         <section class="popup">
           <form class="popup__form">
@@ -140,11 +70,54 @@
             <button class="popup__btn-close" type="button"></button>
           </form>
         </section>
+
+        <section class="popup-add">
+          <form class="popup-add__form">
+            <h2 class="popup-add__form-title">Nuevo lugar</h2>
+            <fieldset class="popup-add__form-content">
+              <input
+                class="popup-add__form-name"
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Título"
+              />
+              <input
+                class="popup-add__form-link"
+                type="text"
+                name="link"
+                id="link"
+                placeholder="Enlace a la imagen"
+              />
+            </fieldset>
+            <button class="popup-add__form_add-btn" type="submit">Crear</button>
+            <button class="popup-add__form_close-btn" type="button"></button>
+          </form>
+        </section>
+
+        <div class="popup__img">
+          <div class="popup__image-container">
+            <button class="popup__image_btn-close"></button>
+            <img class="popup__image" src="" alt="" />
+            <p class="popup__image-text"></p>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__text">© 2025 Around The U.S.</p>
       </footer>
     </div>
+
+    <template id="gallery-template">
+      <div class="gallery__card">
+        <img class="gallery__card-image" src="" alt="" />
+        <button class="gallery__card_delete-btn"></button>
+        <div class="gallery__card-text">
+          <h2 class="gallery__card-title"></h2>
+          <button class="gallery__card-icon"></button>
+        </div>
+      </div>
+    </template>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>

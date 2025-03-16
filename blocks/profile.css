@@ -64,6 +64,7 @@
 
 .profile__info-btn:hover {
   opacity: 60%;
+  cursor: pointer;
 }
 
 .profile__about {

@@ -1,6 +1,6 @@
 .gallery {
   max-width: 880px;
-  height: 743px;
+  min-height: 743px;
   margin: 50px 0 67px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -10,25 +10,44 @@
   color: rgba(0, 0, 0, 1);
 }
 
-.gallery__element {
+.gallery__card {
   background: rgba(255, 255, 255, 1);
-  max-height: 361px;
-  height: 100%;
+  height: 361px;
   max-width: 282px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.gallery__element-image {
+.gallery__card-image {
   max-height: 282px;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.gallery__element-text {
+.gallery__card_delete-btn {
+  border: none;
+  background: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/Trash.svg");
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.gallery__card_delete-btn:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.gallery__card-text {
   height: 30px;
   max-width: 246px;
 
@@ -38,9 +57,10 @@
   margin: auto 15px auto 21px;
 }
 
-.gallery__element-title {
+.gallery__card-title {
   margin: 0;
   font-family: "Inter";
+  max-width: 210px;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -51,7 +71,7 @@
   overflow: hidden;
 }
 
-.gallery__element-icon {
+.gallery__card-icon {
   height: 19px;
   width: 21px;
   border: none;
@@ -61,12 +81,12 @@
   background-position: center;
 }
 
-.gallery__element-icon:hover {
+.gallery__card-icon:hover {
   opacity: 50%;
   cursor: pointer;
 }
 
-.gallery__element-icon:active {
+.gallery__card_icon-active {
   background-image: url(../images/gallery-element-icon-active.svg);
   background-position: center;
   background-size: cover;
@@ -82,18 +102,18 @@
     grid-template-columns: 1fr;
   }
 
-  .gallery__element {
+  .gallery__card {
     height: 361px;
   }
 
-  .gallery__element-title {
+  .gallery__card-title {
     font-family: "Inter";
     font-weight: 900;
     font-size: 24px;
     line-height: 29.05px;
   }
 
-  .gallery__element-text {
+  .gallery__card-text {
     height: 30px;
     max-width: 246px;
     width: auto;
@@ -111,12 +131,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .gallery__element {
+  .gallery__card {
     height: 361px;
     max-width: 282px;
   }
 
-  .gallery__element-text {
+  .gallery__card-text {
     height: 30px;
     max-width: 246px;
     width: auto;
