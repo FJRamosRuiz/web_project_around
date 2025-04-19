@@ -48,18 +48,18 @@
         <section class="gallery"></section>
 
         <section class="popup">
-          <form class="popup__form">
+          <form class="form popup__form" novalidate>
             <h2 class="popup__form-title">Editar perfil</h2>
-            <fieldset class="popup__form-content">
+            <fieldset class="field__set popup__form-content">
               <input
-                class="popup__form-name"
+                class="form__input popup__form-name"
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Nombre"
               />
               <input
-                class="popup__form-occupation"
+                class="form__input popup__form-occupation"
                 type="text"
                 name="occupation"
                 id="occupation"
@@ -70,21 +70,20 @@
             <button class="popup__btn-close" type="button"></button>
           </form>
         </section>
-
         <section class="popup-add">
-          <form class="popup-add__form">
+          <form class="form popup-add__form" novalidate>
             <h2 class="popup-add__form-title">Nuevo lugar</h2>
-            <fieldset class="popup-add__form-content">
+            <fieldset class="field__set popup-add__form-content">
               <input
-                class="popup-add__form-name"
+                class="form__input popup-add__form-name"
                 type="text"
                 name="title"
                 id="title"
                 placeholder="Título"
               />
               <input
-                class="popup-add__form-link"
-                type="text"
+                class="form__input popup-add__form-link"
+                type="url"
                 name="link"
                 id="link"
                 placeholder="Enlace a la imagen"
@@ -119,5 +118,6 @@
       </div>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
   </body>
 </html>

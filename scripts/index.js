@@ -80,12 +80,14 @@ function handlePopupToggle() {
 }
 
 // Funcion para el Boton guardar del Popup para actualizar nombre y occupacion de la Seccion de Profile
-function handlePopupSubmit(event) {
-  event.preventDefault();
+function handlePopupSubmit(evt) {
+  evt.preventDefault();
   profileName.textContent = popupInputName.value;
   profileOccupation.textContent = popupInputOccup.value;
   popupSection.classList.remove("popup__open");
   overlay.classList.remove("overlay_open");
+
+  console.log(evt.target);
 }
 
 // SECCION DE GALLERY-ADD (Agregar imagenes a la galeria)
@@ -132,6 +134,7 @@ function handlePopupAddToggle(event) {
   overlay.classList.toggle("overlay_open");
 }
 
+// Funcion para agregar tarjeta de Imagen nueva a la Galeria
 function handlePopupAddSubmit(event) {
   event.preventDefault();
   const card = createGalleryCard(popupAddImgTitle.value, popupAddLink.value);
@@ -140,6 +143,7 @@ function handlePopupAddSubmit(event) {
   overlay.classList.remove("overlay_open");
 }
 
+// Funcion para visualizar las imagenes en un POPUP y tamaño grande
 function openImagePopup(title, link) {
   popupImage.src = link;
   popupImage.alt = title;
@@ -157,9 +161,9 @@ addCards();
 // Eventos para el POPUP para Editar la Section Profile
 profileEditInfoBtn.addEventListener("click", handlePopupToggle);
 popupCloseBtn.addEventListener("click", handlePopupToggle);
-popupSaveBtn.addEventListener("submit", handlePopupSubmit);
+popupSaveBtn.addEventListener("click", handlePopupSubmit);
 
 // Eventos para el POPUP ADD para Agregar imagenes a la Section Gallery
 profileAddImgBtn.addEventListener("click", handlePopupAddToggle);
 popupAddCloseBtn.addEventListener("click", handlePopupAddToggle);
-popupAddSaveBtn.addEventListener("submit", handlePopupAddSubmit);
+popupAddSaveBtn.addEventListener("click", handlePopupAddSubmit);
