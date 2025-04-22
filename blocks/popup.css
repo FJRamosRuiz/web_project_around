@@ -16,15 +16,19 @@
 
 .popup__form {
   padding: 34px 36px 36px;
-  max-width: 358px;
+  width: 358px;
   max-height: 330px;
-  width: 100%;
 }
 
 .popup__form-content {
   padding: 0;
   border: none;
   max-width: 358px;
+  height: 86px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .popup__form-title {
@@ -37,7 +41,7 @@
 }
 
 .popup__form-name {
-  margin: 0 0 29.74px;
+  margin: 0;
   padding: 0;
   max-width: 358px;
   height: 27.34px;

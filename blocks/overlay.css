@@ -8,7 +8,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
-  z-index: 1;
+  z-index: 2;
 }
 
 .overlay_open {

@@ -1,8 +1,8 @@
 .popup-add {
   position: fixed;
   top: 195px;
-  max-width: 430px;
-  max-height: 330px;
+  width: 430px;
+  height: 330px;
   z-index: 3;
   display: none;
 }
@@ -28,13 +28,18 @@
 }
 
 .popup-add__form-content {
+  height: 86px;
   padding: 0;
   margin: 0;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible;
 }
 
 .popup-add__form-name {
-  margin: 0 0 29.74px;
+  margin: 0;
   padding: 0;
   max-width: 358px;
   height: 27.34px;
@@ -62,6 +67,7 @@
 
 .popup-add__form_add-btn {
   margin: 48px 0 0;
+  padding: 0;
   width: 358px;
   height: 50.15px;
   border-radius: 2px;
@@ -71,7 +77,6 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
-  letter-spacing: 0%;
   text-align: center;
 }
 

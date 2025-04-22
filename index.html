@@ -50,46 +50,73 @@
         <section class="popup">
           <form class="form popup__form" novalidate>
             <h2 class="popup__form-title">Editar perfil</h2>
-            <fieldset class="field__set popup__form-content">
-              <input
-                class="form__input popup__form-name"
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Nombre"
-              />
-              <input
-                class="form__input popup__form-occupation"
-                type="text"
-                name="occupation"
-                id="occupation"
-                placeholder="Acerca de mí"
-              />
+            <fieldset class="form__set popup__form-content">
+              <label class="form__field">
+                <input
+                  class="form__input popup__form-name"
+                  id="name-input"
+                  type="text"
+                  name="name"
+                  placeholder="Nombre"
+                  minlength="2"
+                  maxlength="40"
+                  required
+                />
+                <span class="form__input-error name-input-error"></span>
+              </label>
+              <label class="form__field">
+                <input
+                  class="form__input popup__form-occupation"
+                  id="occupation-input"
+                  type="text"
+                  name="occupation"
+                  placeholder="Acerca de mí"
+                  minlength="2"
+                  maxlength="200"
+                  required
+                />
+                <span class="form__input-error occupation-input-error"></span>
+              </label>
             </fieldset>
-            <button class="popup__form-btn" type="submit">Guardar</button>
+            <button class="form__submit popup__form-btn" type="submit">
+              Guardar
+            </button>
             <button class="popup__btn-close" type="button"></button>
           </form>
         </section>
+
         <section class="popup-add">
           <form class="form popup-add__form" novalidate>
             <h2 class="popup-add__form-title">Nuevo lugar</h2>
-            <fieldset class="field__set popup-add__form-content">
-              <input
-                class="form__input popup-add__form-name"
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Título"
-              />
-              <input
-                class="form__input popup-add__form-link"
-                type="url"
-                name="link"
-                id="link"
-                placeholder="Enlace a la imagen"
-              />
+            <fieldset class="form__set popup-add__form-content">
+              <label class="form__field">
+                <input
+                  class="form__input popup-add__form-name"
+                  id="title-input"
+                  type="text"
+                  name="title"
+                  placeholder="Título"
+                  minlength="2"
+                  maxlength="30"
+                  required
+                />
+                <span class="form__input-error title-input-error"></span>
+              </label>
+              <label class="form__field">
+                <input
+                  class="form__input popup-add__form-link"
+                  id="link-input"
+                  type="url"
+                  name="link"
+                  placeholder="Enlace a la imagen"
+                  required
+                />
+                <span class="form__input-error link-input-error"></span>
+              </label>
             </fieldset>
-            <button class="popup-add__form_add-btn" type="submit">Crear</button>
+            <button class="form__submit popup-add__form_add-btn" type="submit">
+              Crear
+            </button>
             <button class="popup-add__form_close-btn" type="button"></button>
           </form>
         </section>
@@ -117,7 +144,6 @@
         </div>
       </div>
     </template>
-    <script src="./scripts/index.js" defer></script>
-    <script src="./scripts/validate.js" defer></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+import { enableValidation, toggleButtonState } from "./validate.js";
+
 // Seccion del Perfil
 const profileSection = document.querySelector(".profile");
 const profileEditInfoBtn = profileSection.querySelector(".profile__info-btn");
@@ -67,8 +69,7 @@ const initialCards = [
 ];
 
 // SECTION DE POPUP
-// Funcion para los botones de abrir y cerrar el Popup para la edicion de la Seccion de Profile
-
+// Funcion - Botones de abrir y cerrar el Popup para la edicion de la Seccion de Profile.
 function handlePopupToggle() {
   popupSection.classList.toggle("popup__open");
   overlay.classList.toggle("overlay_open");
@@ -76,22 +77,25 @@ function handlePopupToggle() {
   if (popupSection.classList.contains("popup__open")) {
     popupInputName.value = profileName.textContent;
     popupInputOccup.value = profileOccupation.textContent;
+
+    const fieldset = popupSection.querySelector(".form__set");
+    const inputs = Array.from(fieldset.querySelectorAll(".form__input"));
+    const button = popupSection.querySelector(".form__submit");
+
+    toggleButtonState(inputs, button);
   }
 }
 
-// Funcion para el Boton guardar del Popup para actualizar nombre y occupacion de la Seccion de Profile
-function handlePopupSubmit(evt) {
-  evt.preventDefault();
+// Funcion - Submit para el formulario para actualizar nombre y occupacion de la Seccion de Profile.
+function handlePopupSubmit() {
   profileName.textContent = popupInputName.value;
   profileOccupation.textContent = popupInputOccup.value;
   popupSection.classList.remove("popup__open");
   overlay.classList.remove("overlay_open");
-
-  console.log(evt.target);
 }
 
 // SECCION DE GALLERY-ADD (Agregar imagenes a la galeria)
-
+// Funcion - Crear una card para la galeria y la agrega al inicio de la seccion de Galería.
 function addCards() {
   initialCards.forEach(function (item) {
     const card = createGalleryCard(item.name, item.link);
@@ -99,6 +103,7 @@ function addCards() {
   });
 }
 
+// Funcion - Crear tarjeta de Galería y agregar controlador de eventos
 function createGalleryCard(title, link) {
   const galleryTemplate = document.querySelector("#gallery-template").content;
   const card = galleryTemplate.querySelector(".gallery__card").cloneNode(true);
@@ -127,23 +132,45 @@ function createGalleryCard(title, link) {
 }
 
 // SECCION DE POPUP ADD
-// Funcion para los botones abrir y cerrar el Popup Add de agregar imagenes
+// Funcion - Botones abrir y cerrar el Formulario de agregar imagenes.
 function handlePopupAddToggle(event) {
   event.preventDefault();
   popupAddSection.classList.toggle("popup-add_open");
   overlay.classList.toggle("overlay_open");
+
+  // Si lo estás abriendo, reseteamos los campos y forzamos validación
+  if (popupAddSection.classList.contains("popup-add_open")) {
+    popupAddImgTitle.value = "";
+    popupAddLink.value = "";
+
+    // Limpia errores visuales anteriores
+    const fieldset = popupAddSection.querySelector(".form__set");
+    const inputs = Array.from(fieldset.querySelectorAll(".form__input"));
+    const button = popupAddSection.querySelector(".form__submit");
+
+    inputs.forEach((input) => {
+      input.classList.remove("form__input_type_error");
+      const errorSpan = fieldset.querySelector(`.${input.id}-error`);
+      if (errorSpan) {
+        errorSpan.textContent = "";
+        errorSpan.classList.remove("form__input-error_active");
+      }
+    });
+
+    // Forzamos el estado correcto del botón al abrir
+    toggleButtonState(inputs, button);
+  }
 }
 
-// Funcion para agregar tarjeta de Imagen nueva a la Galeria
-function handlePopupAddSubmit(event) {
-  event.preventDefault();
+// Funcion - Submit para agregar tarjeta de Imagen nueva a la Galeria.
+function handlePopupAddSubmit() {
   const card = createGalleryCard(popupAddImgTitle.value, popupAddLink.value);
   gallerySection.prepend(card);
   popupAddSection.classList.remove("popup-add_open");
   overlay.classList.remove("overlay_open");
 }
 
-// Funcion para visualizar las imagenes en un POPUP y tamaño grande
+// Funcion - Visualizar las imagenes en un POPUP y tamaño grande.
 function openImagePopup(title, link) {
   popupImage.src = link;
   popupImage.alt = title;
@@ -158,12 +185,44 @@ popupImgCloseBtn.addEventListener("click", () => {
 });
 
 addCards();
+
+// Cerrar cualquier popup al hacer clic en el overlay (fondo oscuro)
+
+// Función que cierra todos los popups
+function closeAllPopups() {
+  popupSection.classList.remove("popup__open");
+  popupAddSection.classList.remove("popup-add_open");
+  popupImageSection.classList.remove("popup__img_open");
+  overlay.classList.remove("overlay_open");
+}
+
+// Evento para cerrar los popups con el botón "Escape" o "Esc".
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeAllPopups();
+  }
+});
+
 // Eventos para el POPUP para Editar la Section Profile
 profileEditInfoBtn.addEventListener("click", handlePopupToggle);
 popupCloseBtn.addEventListener("click", handlePopupToggle);
-popupSaveBtn.addEventListener("click", handlePopupSubmit);
+popupSaveBtn.addEventListener("submit", handlePopupSubmit);
 
 // Eventos para el POPUP ADD para Agregar imagenes a la Section Gallery
 profileAddImgBtn.addEventListener("click", handlePopupAddToggle);
 popupAddCloseBtn.addEventListener("click", handlePopupAddToggle);
-popupAddSaveBtn.addEventListener("click", handlePopupAddSubmit);
+popupAddSaveBtn.addEventListener("submit", handlePopupAddSubmit);
+
+// Evento para cerrar los Popups al hacer click en el fondo
+overlay.addEventListener("click", closeAllPopups);
+
+enableValidation();
+
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
